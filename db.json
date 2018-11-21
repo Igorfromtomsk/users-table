@@ -1,0 +1,88 @@
+  {
+  "users": [
+    {
+      "id": 0,
+      "login": "Admin",
+      "password": "root",
+      "access": 5,
+      "pic": "https://randomuser.me/api/portraits/lego/0.jpg"
+    },
+    {
+      "id": 1,
+      "login": "Neil",
+      "password": "armstrong",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/0.jpg"
+    },
+    {
+      "id": 2,
+      "login": "Bach",
+      "password": "johann",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/2.jpg"
+    },
+    {
+      "id": 3,
+      "login": "Gates",
+      "password": "Bill",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/3.jpg"
+    },
+    {
+      "id": 4,
+      "login": "Gibson",
+      "password": "Mel",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/4.jpg"
+    },
+    {
+      "id": 5,
+      "login": "Gere",
+      "password": "Richard",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/5.jpg"
+    },
+    {
+      "id": 6,
+      "login": "Hitler",
+      "password": "Adolf",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/6.jpg"
+    },
+    {
+      "id": 7,
+      "login": "Gogol",
+      "password": "Nikolay",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/7.jpg"
+    },
+    {
+      "id": 8,
+      "login": "Gomez",
+      "password": "Selena",
+      "access": 1,
+      "pic": "https://randomuser.me/api/portraits/women/0.jpg"
+    },
+    {
+      "id": 9,
+      "login": "Gorbachev",
+      "password": "Mikhail",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/9.jpg"
+    },
+    {
+      "id": 10,
+      "login": "Gorky",
+      "password": "Maksim",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/10.jpg"
+    },
+    {
+      "id": 11,
+      "login": "Graves",
+      "password": "Robert",
+      "access": 2,
+      "pic": "https://randomuser.me/api/portraits/men/11.jpg"
+    }
+  ]
+}
