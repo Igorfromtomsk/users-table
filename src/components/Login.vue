@@ -4,20 +4,20 @@
       <h3 class="login-form_title">Authorization</h3>
       <small class="error text-danger" v-if="!!error">{{error}}</small>
       <div class="form-group">
-        <input type="text" placeholder="Login" v-model="login" class="form-control">
+        <input type="text" placeholder="Login" v-model="login" @change="clearError" @keyup="validation" class="form-control">
       </div>
       <div class="form-group">
-        <input type="password" placeholder="Password" v-model="password" class="form-control">
+        <input type="password" placeholder="Password" v-model="password" @change="clearError" @keyup="validation" class="form-control">
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-block" :disabled="!isValid || inProcess">Sign in</button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-  import AuthorizationModule from '../modules/AuthorizationModule';
+  import {AUTH_REQUEST} from "../store/actions/authorization";
 
   export default {
     name: 'login',
@@ -25,25 +25,39 @@
       return {
         login: '',
         password: '',
-        error: ''
+        error: '',
+        inProcess: this.$store.getters.authStatus === 'loading',
+        isValid: false
       }
     },
     methods: {
       signIn() {
-        let data = {
-          login: this.login,
-          password: this.password
-        };
-        AuthorizationModule
-          .signIn(data)
-          .then(r => {
-            localStorage.setItem('user-token', r.token.toString());
-            this.$router.push({name: 'home'});
+        let {login, password} = this;
+
+        this.$store.dispatch(AUTH_REQUEST, {login, password})
+          .then(() => {
+            this.$router.push('/home');
           })
-          .catch(r => {
-            localStorage.removeItem('user-token');
-            this.error = r.message;
+          .catch(error => {
+            this.error = this.$store.getters.authErrorMessage;
+            console.log('error:', error);
           })
+      },
+      clearError() {
+        this.error = '';
+      },
+      validation() {
+        switch (true) {
+          default:
+            this.isValid = true;
+            break;
+          case !this.login:
+            this.isValid = false;
+            break;
+          case !this.password:
+            this.isValid = false;
+            break;
+        }
       }
     }
   }
