@@ -9,7 +9,6 @@ const state = {
 };
 
 const getters = {
-  isAuthenticated: state => !!state.token,
   authStatus: state => state.status,
   authErrorMessage: state => state.errorMessage
 };
@@ -37,6 +36,7 @@ const actions = {
           }
 
           dispatch(USER_REQUEST, filteredByPassword[0]);
+          localStorage.setItem('profileId', filteredByPassword[0].id);
           commit(AUTH_SUCCESS, {token: new Date().getTime()});
           resolve();
         })
